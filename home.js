@@ -12,12 +12,11 @@ export default class App extends React.Component {
             user:''
         };
   }
-    static navigationOptions = {
+  static navigationOptions = {
     title: 'Welcome',
-    titleStyle: {
-      color:'#563947'
-    }
-  };
+    headerStyle:{ backgroundColor: '#563947'},
+    headerTitleStyle:{ color: '#d4e7c2'},
+};
   render() {
     const { navigate } = this.props.navigation;
     return ( 

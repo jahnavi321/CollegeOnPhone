@@ -12,6 +12,8 @@ export default class login extends React.Component {
   }
   static navigationOptions = {
     title: 'Login',
+    headerStyle:{ backgroundColor: '#563947'},
+    headerTitleStyle:{ color: '#d4e7c2'},
   };
   render() {
     const { navigate } = this.props.navigation;
@@ -26,7 +28,7 @@ export default class login extends React.Component {
               <View>
                 <Text style={{fontSize:20,fontWeight:'bold',color:'#d4e7c2',textAlign:'auto'}}>User Name</Text>
                 <TextInput
-                    style={{width : 300 ,height:40,borderColor: 'gray', borderWidth: 2, borderRadius: 10,textAlign:'center',  marginBottom: 20, fontSize: 18 , backgroundColor:"#f2f2f2"}} 
+                    style={{width : 300 ,height:40,textAlign:'center',  marginBottom: 20, fontSize: 18 , }} 
                     placeholder='Username'
                     autoCapitalize='none'
                     autoCorrect={false} 
@@ -36,7 +38,7 @@ export default class login extends React.Component {
                     onChangeText={(text) => this.setState({ username: text })} />
                 <Text style={{fontSize:20,fontWeight:'bold',color:'#d4e7c2',textAlign:'auto'}}>password</Text>
                 <TextInput
-                    style={{width : 300,width : 300 ,height:40,borderColor: 'gray', borderWidth: 2, borderRadius: 10,textAlign:'center',  marginBottom: 20, fontSize: 18 , backgroundColor:"#f2f2f2",backgroundColor:"#f2f2f2"}} 
+                    style={{width : 300,width : 300 ,height:40,textAlign:'center',  marginBottom: 20, fontSize: 18 , }} 
                     placeholder='Password'
                     autoCapitalize='none'
                     autoCorrect={false} 
