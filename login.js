@@ -46,6 +46,8 @@ export default class login extends React.Component {
                     value={this.state.password} 
                     onChangeText={(text) => this.setState({ password: text })} />
               </View>
+              <View>
+                              </View>
               </View>
               </KeyboardAvoidingView>
         );
