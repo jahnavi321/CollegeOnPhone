@@ -47,7 +47,13 @@ export default class login extends React.Component {
                     onChangeText={(text) => this.setState({ password: text })} />
               </View>
               <View>
-                              </View>
+              <Button
+                      style={{width:500}}
+                      onPress={console.log("Clicked")}
+                      title="           Login           "
+                      color="#cd626a"
+                      accessibilityLabel="Login"/>
+                </View>
               </View>
               </KeyboardAvoidingView>
         );
