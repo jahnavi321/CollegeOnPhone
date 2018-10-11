@@ -30,6 +30,6 @@ const styles = {
     height: '100%',
   },
   image: {  
-    flex: 1,  
+    flex: 0.5,  
   }
 };
