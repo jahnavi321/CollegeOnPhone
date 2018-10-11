@@ -10,7 +10,6 @@ export default class App extends React.Component {
     super(props);
     this.state = {
             user:'',
-            id:''
         };
   }
   static navigationOptions = {
