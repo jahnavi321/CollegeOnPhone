@@ -13,7 +13,7 @@ export default class App extends React.Component {
         };
   }
   static navigationOptions = {
-    title: 'Welcome',
+    title: 'Home',
     headerStyle:{ backgroundColor: '#563947'},
     headerTitleStyle:{ color: '#d4e7c2'},
 };
