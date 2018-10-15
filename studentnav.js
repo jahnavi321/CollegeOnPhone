@@ -43,6 +43,7 @@ export default class StudentNavigation extends Component {
     title: 'IIITS Student',
     headerStyle:{ backgroundColor: '#563947'},
     headerTitleStyle:{ color: '#d4e7c2'},
+    alignItems: 'center',
 };
 	render() {
     return (
