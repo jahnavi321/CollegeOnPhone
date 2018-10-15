@@ -1,9 +1,40 @@
 import React from 'react';
-import { StyleSheet, Text, View , Image , TextInput, KeyboardAvoidingView,Button,TouchableOpacity} from 'react-native';
+import { Animated, StyleSheet, Text, View , Image , TextInput, ImageBackground,Dimensions, KeyboardAvoidingView,Button,TouchableOpacity} from 'react-native';
 import {
   createStackNavigator,
 } from 'react-navigation';
+const {width: WIDTH} = Dimensions.get('window')
 
+class FadeInView extends React.Component {
+  state = {
+    fadeAnim: new Animated.Value(0),  // Initial value for opacity: 0
+  }
+
+  componentDidMount() {
+    Animated.timing(                  // Animate over time
+      this.state.fadeAnim,            // The animated value to drive
+      {
+        toValue: 1,                   // Animate to opacity: 1 (opaque)
+        duration: 3000,              // Make it take a while
+      }
+    ).start();                        // Starts the animation
+  }
+
+  render() {
+    let { fadeAnim } = this.state;
+
+    return (
+      <Animated.View                 // Special animatable View
+        style={{
+          ...this.props.style,
+          opacity: fadeAnim,         // Bind opacity to animated value
+        }}
+      >
+        {this.props.children}
+      </Animated.View>
+    );
+  }
+}
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,16 +45,18 @@ export default class App extends React.Component {
         };
   }
   static navigationOptions = {
-    title: 'Home',
+    title: 'IIITS',
     headerStyle:{ backgroundColor: '#563947'},
     headerTitleStyle:{ color: '#d4e7c2'},
 };
   render() {
     const { navigate } = this.props.navigation;
     return ( 
+        <ImageBackground source={require('./assets/college/college2.jpg')}  style={{flex: 1,height: '100%' ,width: '100%',alignItems: 'center', justifyContent: 'center'}} >
               <View style={styles.container}>
+
                 <View>
-                  <Text style={{fontSize:35,fontWeight:'bold',color:'#d4e7c2',textAlign:'auto'}}>CollegeOnPhone</Text>
+                  <Text style={{fontSize:35,fontWeight:'bold',color:'#563947',textAlign:'auto'}}>CollegeOnPhone</Text>
                   <Text>{`\n`}</Text>
                 </View>
                 <View>
@@ -32,33 +65,37 @@ export default class App extends React.Component {
                 </View>
 
                 <View>
+                <FadeInView>
                 <TouchableOpacity>
                   <Button
-                      style={ {width:500 }}
+                      style={ {flex: 3, flexDirection:'column', justifyContent:'center', alignItems:'center' }}
                       onPress={() =>
-                                navigate('Login', { name: 'Jane' })}
-                      title="           Admin           "
+                                navigate('AdminLogin', { name: 'Jane' })}
+                      title="Admin"
                       color="#cd626a"
                       accessibilityLabel="Admin"/>
                   <Text>{`\n`}</Text>
                   <Button
-                      style={{width:500}}
+                      style={ {flex: 3, flexDirection:'column', justifyContent:'center', alignItems:'center' }}
                       onPress={() =>
-                                navigate('Login', { name: 'Jane' })}
-                      title="           Faculty           "
+                                navigate('FacultyLogin', { name: 'Jane' })}
+                      title="Faculty"
                       color="#cd626a"
                       accessibilityLabel="Faculty"/>
                   <Text>{`\n`}</Text>
+
                   <Button
-                      style={{width:500}}
+                      style={{width:600,justifyContent: 'center'}}
                       onPress={() =>
-                                navigate('Login', { name: 'Jane' })}
-                      title="           Student             "
+                                navigate('StudentLogin', { name: 'Jane' })}
+                      title="Student"
                       color="#cd626a"
                       accessibilityLabel="Student"/>
                       </TouchableOpacity>
+                  </FadeInView>
                 </View>
               </View>
+            </ImageBackground>
         );
       }
 }
@@ -75,7 +112,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor:'#563947',
+    //backgroundColor:'#563947',
     alignItems: 'center',
     justifyContent: 'center',
   },
