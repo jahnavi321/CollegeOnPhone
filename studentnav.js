@@ -5,8 +5,9 @@ import {
 import View from 'react-native-view'
 import FallingDrawer from 'react-native-falling-drawer'
 import MAIcon from 'react-native-vector-icons/MaterialIcons'
+import Test from './test.js'
 
-const renderScreen = (text) => <View flex vcenter hcenter><Text>{text}</Text></View>
+const renderScreen = (text) => <View flex vcenter hcenter><Test Name={text} /></View>
 
 const getScreen = (key, name, color, titleColor, hamburgerColor, iconName) => ({
   key,
@@ -19,7 +20,8 @@ const getScreen = (key, name, color, titleColor, hamburgerColor, iconName) => ({
     <View row flex vcenter hcenter mdpt>
       <MAIcon name={iconName} size={30} color={titleColor} />
       <View mdpl />
-      <Text style={{ color: titleColor, fontSize: 18 }}>{name}</Text>
+      
+     <Text style={{ color: titleColor, fontSize: 18 }}>{name}</Text>
     </View>
   )
 })
@@ -36,7 +38,7 @@ const SCREENS = [
   getScreen("profile", "Profile", "rgba(86,57,71,0.9)", "#fff", "#fff", "person"),
 ]
 
-export default class App extends Component {
+export default class StudentNavigation extends Component {
   static navigationOptions = {
     title: 'IIITS Student',
     headerStyle:{ backgroundColor: '#563947'},
