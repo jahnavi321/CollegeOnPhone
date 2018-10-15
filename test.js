@@ -6,7 +6,7 @@ export default class Test extends React.Component{
 	render(){
 		return(
 			<View>
-				<Text> {this.props.Name} fjgkdfjg  </Text>
+				<Text> {this.props.Name}  Cards will be displayed here.  </Text>
             </View>
 			);
 	}
