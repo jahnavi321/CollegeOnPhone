@@ -5,7 +5,6 @@ import {
 } from 'react-navigation';
 
 import home from './home.js';
-import login from './login.js';
 import studentlogin from './studentlogin.js';
 import adminlogin from './adminlogin.js';
 import facultylogin from './facultylogin.js';
@@ -13,7 +12,6 @@ import studentnav from './studentnav.js'
 
 const App = createStackNavigator({
      Home: { screen: home },
-     Login: { screen: login },
      StudentLogin: {screen: studentlogin},
      AdminLogin: {screen: adminlogin},
      FacultyLogin: {screen: facultylogin},
