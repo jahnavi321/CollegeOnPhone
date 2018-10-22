@@ -3,8 +3,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View,
-  TouchableOpacity
+  View, Image,
+  TouchableOpacity, ScrollView
 } from 'react-native';
 
 import CardFlip from 'react-native-card-flip';
@@ -16,10 +16,18 @@ export default class StudentProfile extends Component<Props> {
       <View style={styles.container}>
         <CardFlip style={styles.cardContainer} ref={(card) => this.card = card} >
           <TouchableOpacity activeOpacity={1} style={[styles.card, styles.card1]} onPress={() => this.card.flip()} >
-            <Text style={styles.label}>AB</Text>
+            <View style={{alignItems: 'center',justifyContent: 'center',flex: 1}}>
+              <Image style={{ width:180, height:180, borderRadius:180/2}} source={require('./assets/college/college2.jpg')}/>
+              <Text style={{fontSize:34, color: 'rgba(232,172,144,1)'}}>{`\n`}Name</Text>
+            </View>
           </TouchableOpacity>
           <TouchableOpacity activeOpacity={1} style={[styles.card, styles.card2]} onPress={() => this.card.flip()} >
-            <Text style={styles.label}>CD</Text>
+          <ScrollView>
+          <Text style={{fontSize:66}}>Scroll me plz</Text>
+          <Text style={{fontSize:66}}>Scroll me plz</Text>
+          <Text style={{fontSize:66}}>Scroll me plz</Text>
+          <Text style={{fontSize:66}}>Scroll me plz</Text>
+          </ScrollView>
           </TouchableOpacity>
         </CardFlip>
       </View>
@@ -37,6 +45,7 @@ const styles = StyleSheet.create({
   cardContainer:{
     width: 300,
     height: 400,
+    
   },
   card:{
     width: 300,
@@ -67,10 +76,10 @@ const styles = StyleSheet.create({
   //   marginTop: 10,
   // },
   card1: {
-    backgroundColor: 'rgba(232,172,144,1)',
+    backgroundColor: 'rgba(86,57,71,1)', 
   },
   card2: {
-    backgroundColor: 'rgba(205,98,106,1)',
+    backgroundColor: 'rgba(205,98,106,0.4)',
   },
   label: {
     lineHeight: 400,
