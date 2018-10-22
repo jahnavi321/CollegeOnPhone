@@ -4,9 +4,13 @@ import View from 'react-native-view'
 import FallingDrawer from 'react-native-falling-drawer'
 import MAIcon from 'react-native-vector-icons/MaterialIcons'
 import StudentProfile from './studentprofile.js'
-import Test from './test.js'
+import Studentpages from './studentpages.js'
 
-const renderScreen = (text) => <View flex vcenter hcenter><StudentProfile Name={text} /></View>
+const renderScreen = (text) =>  <View flex vcenter hcenter><Studentpages Name={text} /></View>
+      
+
+
+
 
 const getScreen = (key, name, color, titleColor, hamburgerColor, iconName) => ({
   key,
