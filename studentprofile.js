@@ -13,6 +13,7 @@ import CardFlip from 'react-native-card-flip';
 export default class StudentProfile extends Component<Props> {
   render() {
     return (
+      <ScrollView>
       <View style={styles.container}>
         <CardFlip style={styles.cardContainer} ref={(card) => this.card = card} >
           <TouchableOpacity activeOpacity={1} style={[styles.card, styles.card1]} onPress={() => this.card.flip()} >
@@ -22,15 +23,16 @@ export default class StudentProfile extends Component<Props> {
             </View>
           </TouchableOpacity>
           <TouchableOpacity activeOpacity={1} style={[styles.card, styles.card2]} onPress={() => this.card.flip()} >
-          <ScrollView>
+          
           <Text style={{fontSize:66}}>Scroll me plz</Text>
           <Text style={{fontSize:66}}>Scroll me plz</Text>
           <Text style={{fontSize:66}}>Scroll me plz</Text>
           <Text style={{fontSize:66}}>Scroll me plz</Text>
-          </ScrollView>
+          
           </TouchableOpacity>
         </CardFlip>
       </View>
+      </ScrollView>
     );
   }
 }

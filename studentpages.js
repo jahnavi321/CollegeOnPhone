@@ -2,6 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, Image , TextInput, KeyboardAvoidingView,Button} from 'react-native';
 import View from 'react-native-view'
 import StudentProfile from './studentprofile.js'
+import Timetable from './StudentPages/timetable.js'
+import Marks from './StudentPages/marks.js'
+import Home from './StudentPages/Home.js'
 
 export default class Studentpages extends React.Component{
 	render(){
@@ -11,19 +14,19 @@ export default class Studentpages extends React.Component{
 					? (<StudentProfile />) 
 					: (
 						(this.props.Name === "Home")
-							? (<Text> Home </Text>)
+							? (<Home/>)
 							: (
 								(this.props.Name === "Fee Schedules")
 								?(<Text> Fee Schedules </Text>)
 								: (
 									(this.props.Name === "Timetable")
-									?(<Text> Timetable </Text>)
+									?(<Timetable/>)
 									:(
 										(this.props.Name === "Pre-class requirements")
 										?(<Text> Pre-class requirements </Text>)
 										:(
 											(this.props.Name === "Marks")
-											?(<Text> Marks </Text>)
+											?(<Marks/>)
 											:(
 												(this.props.Name === "Assignments/projects")
 												?(<Text> Assignments/projects </Text>)	

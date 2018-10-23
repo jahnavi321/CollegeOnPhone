@@ -8,10 +8,6 @@ import Studentpages from './studentpages.js'
 
 const renderScreen = (text) =>  <View flex vcenter hcenter><Studentpages Name={text} /></View>
       
-
-
-
-
 const getScreen = (key, name, color, titleColor, hamburgerColor, iconName) => ({
   key,
   name,
