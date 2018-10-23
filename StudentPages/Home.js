@@ -104,7 +104,7 @@ export default class Home extends Component {
          </Card>
          <Card>
             <CardItem style={{ backgroundColor: 'rgba(205,98,106,0.7)' }} header>
-              <Text>NativeBase fhdjrnjhfjd</Text>
+              <Text>NativeBase  fdsfj fdsfh fdsjk fhdjrnjhfjd</Text>
             </CardItem>
             <CardItem style={{ backgroundColor: 'rgba(232,172,144,0.5)' }}>
               <Body>
@@ -122,7 +122,7 @@ export default class Home extends Component {
               </Body>
             </CardItem>
             <CardItem style={{ backgroundColor: 'rgba(232,172,144,0.7)' }} footer>
-              <Text>GeekyAnts fhdjg fdfgjhdf gkjdh</Text>
+              <Text>GeekyAnts fhdjg  dfd fdjfkk sfsfdfgjhdf gkjdh</Text>
             </CardItem>
          </Card>
         </Content>
