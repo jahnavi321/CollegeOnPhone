@@ -1,65 +1,135 @@
-const users = [
-    {
-       name: 'brynn',
-       avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
-    },
-// more users here
-   ]
-   
-   import { View, Text, Image } from 'react-native'
-   import { Card, ListItem, Button, Icon } from 'react-native-elements'
-   export default class Home extends Component<Props> {
-    render() {
-      return (
-//    // implemented without image with header
-//    <Card title="CARD WITH DIVIDER">
-//      {
-//        users.map((u, i) => {
-//          return (
-//            <View key={i} style={styles.user}>
-//              <Image
-//                style={styles.image}
-//                resizeMode="cover"
-//                source={{ uri: u.avatar }}
-//              />
-//              <Text style={styles.name}>{u.name}</Text>
-//            </View>
-//          );
-//        })
-//      }
-//    </Card>
-   
-   // implemented without image without header, using ListItem component
-    <Card containerStyle={{padding: 0}} >
-     {
-       users.map((u, i) => {
-         return (
-           <ListItem
-             key={i}
-             roundAvatar
-             title={u.name}
-             avatar={{uri:u.avatar}}
-           />
-         );
-       })
-     }
-   </Card>
-   
-   
-//    // implemented with Text and Button as children
-//    <Card
-//      title='HELLO WORLD'
-//      image={require('../images/pic2.jpg')}>
-//      <Text style={{marginBottom: 10}}>
-//        The idea with React Native Elements is more about component structure than actual design.
-//      </Text>
-//      <Button
-//        icon={<Icon name='code' color='#ffffff' />}
-//        backgroundColor='#03A9F4'
-//        buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-//        title='VIEW NOW' />
-//    </Card>
-   
-);
-}
+import React, { Component } from 'react';
+import {Dimensions, ScrollView} from 'react-native';
+import { Container, StyleSheet, Header, Content, Card, CardItem, Text, Body} from 'native-base';
+const {width: WIDTH} = Dimensions.get('window')
+
+export default class Home extends Component {
+  render() {
+    return (
+      <Container style={{ width:WIDTH, backgroundColor:'#f5f9d9', borderRadius:10}}>
+        <Header />
+        <ScrollView>
+        <Content>
+          <Card>
+            <CardItem style={{ backgroundColor: 'rgba(205,98,106,0.7)' }} header>
+              <Text>NativeBase fhdjrnjhfjd</Text>
+            </CardItem>
+            <CardItem style={{ backgroundColor: 'rgba(232,172,144,0.5)' }}>
+              <Body>
+                <Text>
+                  //Your text here
+                </Text>
+                <Text>
+                  //Your text here
+                </Text>
+                <Text>
+                  //Your text here
+                </Text><Text>
+                  //Your text here
+                </Text>
+              </Body>
+            </CardItem>
+            <CardItem style={{ backgroundColor: 'rgba(232,172,144,0.7)' }} footer>
+              <Text>GeekyAnts fhdjg fdfgjhdf gkjdh</Text>
+            </CardItem>
+         </Card><Card>
+            <CardItem style={{ backgroundColor: 'rgba(205,98,106,0.7)' }} header>
+              <Text>NativeBase fhdjrnjhfjd</Text>
+            </CardItem>
+            <CardItem style={{ backgroundColor: 'rgba(232,172,144,0.5)' }}>
+              <Body>
+                <Text>
+                  //Your text here
+                </Text>
+                <Text>
+                  //Your text here
+                </Text>
+                <Text>
+                  //Your text here
+                </Text><Text>
+                  //Your text here
+                </Text>
+              </Body>
+            </CardItem>
+            <CardItem style={{ backgroundColor: 'rgba(232,172,144,0.7)' }} footer>
+              <Text>GeekyAnts fhdjg fdfgjhdf gkjdh</Text>
+            </CardItem>
+         </Card>
+         <Card>
+            <CardItem style={{ backgroundColor: 'rgba(205,98,106,0.7)' }} header>
+              <Text>NativeBase fhdjrnjhfjd</Text>
+            </CardItem>
+            <CardItem style={{ backgroundColor: 'rgba(232,172,144,0.5)' }}>
+              <Body>
+                <Text>
+                  //Your text here
+                </Text>
+                <Text>
+                  //Your text here
+                </Text>
+                <Text>
+                  //Your text here
+                </Text><Text>
+                  //Your text here
+                </Text>
+              </Body>
+            </CardItem>
+            <CardItem style={{ backgroundColor: 'rgba(232,172,144,0.7)' }} footer>
+              <Text>GeekyAnts fhdjg fdfgjhdf gkjdh</Text>
+            </CardItem>
+         </Card>
+
+         <Card>
+            <CardItem style={{ backgroundColor: 'rgba(205,98,106,0.7)' }} header>
+              <Text>NativeBase fhdjrnjhfjd</Text>
+            </CardItem>
+            <CardItem style={{ backgroundColor: 'rgba(232,172,144,0.5)' }}>
+              <Body>
+                <Text>
+                  //Your text here
+                </Text>
+                <Text>
+                  //Your text here
+                </Text>
+                <Text>
+                  //Your text here
+                </Text><Text>
+                  //Your text here
+                </Text>
+              </Body>
+            </CardItem>
+            <CardItem style={{ backgroundColor: 'rgba(232,172,144,0.7)' }} footer>
+              <Text>GeekyAnts fhdjg fdfgjhdf gkjdh</Text>
+            </CardItem>
+         </Card>
+         <Card>
+            <CardItem style={{ backgroundColor: 'rgba(205,98,106,0.7)' }} header>
+              <Text>NativeBase fhdjrnjhfjd</Text>
+            </CardItem>
+            <CardItem style={{ backgroundColor: 'rgba(232,172,144,0.5)' }}>
+              <Body>
+                <Text>
+                  //Your text here
+                </Text>
+                <Text>
+                  //Your text here
+                </Text>
+                <Text>
+                  //Your text here
+                </Text><Text>
+                  //Your text here
+                </Text>
+              </Body>
+            </CardItem>
+            <CardItem style={{ backgroundColor: 'rgba(232,172,144,0.7)' }} footer>
+              <Text>GeekyAnts fhdjg fdfgjhdf gkjdh</Text>
+            </CardItem>
+         </Card>
+        </Content>
+        </ScrollView>
+      </Container>
+
+      
+    );
+  }
 }
