@@ -26,7 +26,8 @@ const getScreen = (key, name, color, titleColor, hamburgerColor, iconName) => ({
 })
 
 const SCREENS = [
-  getScreen("home1", "Home", "rgba(86,57,71,0.9)", "#fff", "#fff", "home"),
+  getScreen("home1", "Home", "rgba(86,57,71,1)", "#fff", "#fff", "home"),
+  getScreen("favorites", "Favorites", "rgba(232,172,144,0.8)", "#fff", "#fff", "star"),
   getScreen("feeschedules", "Fee Schedules", "rgba(232,172,144,1)", "#fff", "#fff", "payment"),
   getScreen("timetable", "Timetable", "rgba(205,98,106,0.4)", "#fff", "#fff", "subtitles"),
   getScreen("preclassrequirements", "Pre-class requirements", "rgba(205,98,106,0.6)", "#fff", "#fff", "timer"),
@@ -34,7 +35,7 @@ const SCREENS = [
   getScreen("assignments", "Assignments/projects", "rgba(86,57,71,0.4)", "#fff", "#fff", "edit"),
   getScreen("classreschedules", "Class-reschedules", "rgba(86,57,71,0.5)", "#fff", "#fff", "track-changes"),
   getScreen("profile", "Profile", "rgba(86,57,71,0.7)", "#fff", "#fff", "person"),
-  getScreen("home", "Home", "rgba(86,57,71,0.9)", "#fff", "#fff", "home"),
+  getScreen("home", "Home", "rgba(86,57,71,1)", "#fff", "#fff", "home"),
 ]
 
 export default class StudentNavigation extends Component {

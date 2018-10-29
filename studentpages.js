@@ -3,8 +3,14 @@ import { StyleSheet, Text, Image , TextInput, KeyboardAvoidingView,Button} from 
 import View from 'react-native-view'
 import StudentProfile from './studentprofile.js'
 import Timetable from './StudentPages/timetable.js'
-import Marks from './StudentPages/marks.js'
+import AssignProj from './StudentPages/assignProj.js'
+import Req from './StudentPages/req.js'
+import Marks from './StudentPages/displaymarks.js'
 import Home from './StudentPages/Home.js'
+import Fav from './StudentPages/fav.js'
+import CReq from './StudentPages/classReschedule.js'
+import Check from './StudentPages/check.js'
+//
 
 export default class Studentpages extends React.Component{
 	render(){
@@ -17,21 +23,23 @@ export default class Studentpages extends React.Component{
 							? (<Home/>)
 							: (
 								(this.props.Name === "Fee Schedules")
-								?(<Text> Fee Schedules </Text>)
+								?(<Check/>)
 								: (
 									(this.props.Name === "Timetable")
 									?(<Timetable/>)
 									:(
 										(this.props.Name === "Pre-class requirements")
-										?(<Text> Pre-class requirements </Text>)
+										?(<Req/>)
 										:(
 											(this.props.Name === "Marks")
 											?(<Marks/>)
 											:(
 												(this.props.Name === "Assignments/projects")
-												?(<Text> Assignments/projects </Text>)	
+												?(<AssignProj/>)	
 												:(
-													<Text>Class-reschedules</Text>
+													(this.props.Name === "Favorites")
+													?(<Fav/>)
+													:(<CReq/>)
 												)
 											)
 										)

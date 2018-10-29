@@ -25,6 +25,8 @@ export default class App extends React.Component {
         this.setState({ showPass: true, press: false})
       }
     }
+
+
     static navigationOptions = {
     title: 'IIITS Student',
     headerStyle:{ backgroundColor: '#563947'},

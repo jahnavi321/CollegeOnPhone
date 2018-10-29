@@ -67,28 +67,13 @@ export default class App extends React.Component {
                 <View>
                 <FadeInView>
                 <TouchableOpacity>
-                  <Button
-                      style={ {flex: 3, flexDirection:'column', justifyContent:'center', alignItems:'center' }}
-                      onPress={() =>
-                                navigate('AdminLogin', { name: 'Jane' })}
-                      title="Admin"
-                      color="#cd626a"
-                      accessibilityLabel="Admin"/>
-                  <Text>{`\n`}</Text>
-                  <Button
-                      style={ {flex: 3, flexDirection:'column', justifyContent:'center', alignItems:'center' }}
-                      onPress={() =>
-                                navigate('FacultyLogin', { name: 'Jane' })}
-                      title="Faculty"
-                      color="#cd626a"
-                      accessibilityLabel="Faculty"/>
-                  <Text>{`\n`}</Text>
+                  
 
                   <Button
                       style={{width:600,justifyContent: 'center'}}
                       onPress={() =>
                                 navigate('StudentLogin', { name: 'Jane' })}
-                      title="Student"
+                      title="Student login"
                       color="#cd626a"
                       accessibilityLabel="Student"/>
                       </TouchableOpacity>

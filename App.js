@@ -32,3 +32,45 @@ export default App;
 
 // cement
 // #d4e762 rgba(212,231,98,1)
+
+//cream
+//#f5f9d9
+
+// import React, { Component } from 'react';
+// const axios = require('axios');
+// import { TouchableOpacity, View, ActivityIndicator, Text, Alert} from 'react-native';
+// export default class App extends Component {
+// handlePress = async () => {
+//   let res = await axios.get("http://192.168.43.137:8000/api/admin/1");
+//   if(res.status == 200){
+//     console.log(res.data);
+//     // console.log(res.data[2]["SlNo"]);
+//   }
+//   else{
+//     console.log(res);
+//   }
+//   res =  await axios.post("http://192.168.43.137:8000/api/post_check/",{
+//     "vaishnavi": "bhaishnavi",
+//   });
+//   if(res.status==200){
+//     console.log(res.data);
+//   }
+//   else{
+//     console.log(res);
+//   }
+  
+// }
+//   render(){
+//   return(
+//    <View style={{paddingTop: 50, paddingLeft: 50 }}>
+//    <Text> Some other tex--*--t </Text>
+//     <Text> Some other text </Text>
+//     <TouchableOpacity onPress={this.handlePress}>
+//      <Text style={{paddingTop: 50, paddingLeft: 50, color: '#FF0000'}}> Click me to see the name </Text>
+//     </TouchableOpacity>
+// </View> 
+//   );
+// }
+// }
+
+
