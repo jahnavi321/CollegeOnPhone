@@ -5,10 +5,13 @@ import {
 } from 'react-navigation';
 import StudentNavigation from './studentnav'
 
+var token = '';
+
 class studentlogin extends React.Component {
     constructor(props){
         super(props);
-        this.state={value:true}
+        this.state={value:true,
+        }
     }
 	static navigationOptions = {
     title: 'IIITS Student',
@@ -20,32 +23,32 @@ class studentlogin extends React.Component {
         console.log(e.url);
         const stripped = e.url.split('/')
         console.log( stripped[stripped.length-1])
-        console.log(myurl.length);
-        if(e.url != "http://10.0.80.133:3000/login/5be32df126e7c300158688da" ) {
+        // if(e.url != "http://10.0.80.133:3000/login/5be32df126e7c300158688da" ) {
             
+        //     this.setState({value:false})
+        
+        // }
+
+        if(e.url != "https://serene-wildwood-35121.herokuapp.com/login/5be32df126e7c300158688da" ) {
+
+            token = stripped[stripped.length-1];
             this.setState({value:false})
         
         }
-
-        //if(e.url != "https://serene-wildwood-35121.herokuapp.com/login/5be32df126e7c300158688da" ) {
-
-            //this.setState({value:false})
-        
-        // }
     }
 	
     render(){
         return (
             <View>
-                {this.state.value 
+                {(token == '')
                 ?(<View>
                      <Text>
                  </Text>
              <View style={{height: 500}}>
                  <WebView
                  automaticallyAdjustContentInsets={false}
-                 //source={{ uri: 'https://serene-wildwood-35121.herokuapp.com/login/5be32df126e7c300158688da' }}
-                 source={{ uri: 'http://10.0.80.133:3000/login/5be32df126e7c300158688da'}}
+                 source={{ uri: 'https://serene-wildwood-35121.herokuapp.com/login/5be32df126e7c300158688da' }}
+                 //source={{ uri: 'http://10.0.80.133:3000/login/5be32df126e7c300158688da'}}
                  onShouldStartLoadWithRequest={this._onShouldStartLoadWithRequest}
                  onNavigationStateChange = {this._onShouldStartLoadWithRequest}
                  />
