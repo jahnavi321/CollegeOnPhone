@@ -8,7 +8,7 @@ urlpatterns = [
     path('admin/', views.AdminListView.as_view()),
 
     #for login (linked with master database)
-    path('app/login/(?P<token_id>[\w\!-@+]+/)',views.app_login,name="app_login"),
+    #re_path('app/login/(?P<token_id>[\w\!-@+]+/)',views.app_login,name="app_login"),#,(?P<temperature>[0-9]+.[0-9]+)
 
     #url path for get requests
     path('admin/1', views.get_admin_list , name="get_admin_list"),
@@ -25,6 +25,7 @@ urlpatterns = [
     path('classreschedules/', views.get_classreschedules, name="get_classreschedules"),
     path('preclassreq/', views.get_preclassreq, name="get_preclassreq"),
     path('favourites/', views.get_favourites, name="get_favourites"),
+    path('feeschedules/', views.get_feeschedules, name="get_feeschedules"),
 
 
     path('rest-auth/', include('rest_auth.urls')),
@@ -36,8 +37,13 @@ urlpatterns = [
     path('post_classreschedules/', views.post_classreschedules , name="post_classreschedules"),
     path('post_preclassreq/', views.post_preclassreq , name="post_preclassreq"),
     path('post_assignments/', views.post_assignments , name="post_assignments"),
+    path('post_feeschedules/', views.post_feeschedules , name="post_assignments"),
 
+    #stored procedure calls
+    path('post_course_assign_mix/', views.post_course_assign_mix , name="post_course_assign_mix"),
+    path('post_get_course_id/', views.post_get_course_id , name="post_get_course_id"),
 
+    # authentication
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
 
     #path('admin/', views.get_rest_list),

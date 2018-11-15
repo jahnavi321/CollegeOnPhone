@@ -82,3 +82,8 @@ class favouritesSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.favourites
         fields = ('slno','event','student_id','event_datetime','post_time','event_name','event_type','description',)
+
+class feeschedulesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.feeschedules
+        fields = ('slno','title','description','studentdegree','due_date')

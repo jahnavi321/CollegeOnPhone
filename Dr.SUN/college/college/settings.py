@@ -94,6 +94,7 @@ DATABASES = {
         'NAME': 'ase2',
         'USER': 'root',
         'PASSWORD': 'srilekha306',
+        #'PORT' : '',
     }
 }
 

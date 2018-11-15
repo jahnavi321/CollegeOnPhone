@@ -14,8 +14,8 @@ from rest_framework import generics
 from datetime import datetime
 # users/views.py
 #from django.http import JsonResponse
-from .models import favourites,classreschedules,preclassreq,s_c_mapper,timetable,assignments,events,grades,day_parts,student,department ,course,faculty ,Admin,CustomUser
-from .serializers import UserSerializer,favouritesSerializer,s_c_mapperSerializer,classreschedulesSerializer,preclassreqSerializer,timetableSerializer,assignmentsSerializer,eventsSerializer,gradesSerializer,day_partsSerializer,studentSerializer,departmentSerializer,courseSerializer,facultySerializer,AdminSerializer
+from .models import feeschedules,favourites,classreschedules,preclassreq,s_c_mapper,timetable,assignments,events,grades,day_parts,student,department ,course,faculty ,Admin,CustomUser
+from .serializers import UserSerializer,feeschedulesSerializer,favouritesSerializer,s_c_mapperSerializer,classreschedulesSerializer,preclassreqSerializer,timetableSerializer,assignmentsSerializer,eventsSerializer,gradesSerializer,day_partsSerializer,studentSerializer,departmentSerializer,courseSerializer,facultySerializer,AdminSerializer
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -28,11 +28,16 @@ class AdminListView(generics.ListCreateAPIView):
     serializer_class = serializers.AdminSerializer
 
 
-def app_login(request,token_id):
-    data = {'token' : token_id}
-    return JsonResponse(data)
-    # payload = {'token': token_id, 'secret':"6d5fc80be2b62f1eb699f1be6bfc44394de1e2e18f7fd825a7cf045e9825b5ac2d5661b924965f49b97d6827a5bbd298e1549660d43ea70c5830af0241ff3482"}
-    # url = "https://serene-wildwood-35121.herokuapp.com/oauth/getDetails"
+# def app_login(request,token_id):
+    
+#     print("*********************************************************")
+#     data = {'token' : token_id}
+#     print(token_id)
+
+#     payload = {'token': token_id, 'secret':"33414cc05a159b68a01b193903fdb5bc1fcfc53c3a435926d53c5ea80e22ad514eeb637374f185613fc17498f4e931d62dd0307e5540d521a0a3ae64717ab57b"}
+#     url = "https://serene-wildwood-35121.herokuapp.com/oauth/getDetails"
+#     return JsonResponse(data)
+
     # response=requests.post(url, data=payload)
     # data=response.json()
     # #print(data)
@@ -107,6 +112,15 @@ def get_events(request):
     rest_list = events.objects.all()
     serializer = eventsSerializer(rest_list, many=True)
     print(request.data)
+    
+    i = len(serializer.data)
+    for m in range(i):
+            p=str(serializer.data[m]["post_time"])
+            p=p[:19]
+            p=p.replace('T',", ")
+            serializer.data[m]["post_time"]=p
+            #print(serializer.data[m]["post_time"])
+
     return Response(serializer.data)
 
 @api_view(['GET'])
@@ -138,6 +152,13 @@ def get_favourites(request):
     rest_list = favourites.objects.all()
     serializer = favouritesSerializer(rest_list, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def get_feeschedules(request):
+    rest_list = feeschedules.objects.all()
+    serializer = feeschedulesSerializer(rest_list, many=True)
+    return Response(serializer.data)
+    
 
 
 @api_view(['POST'])
@@ -219,12 +240,12 @@ def post_classreschedules(request):
     clsres.course_id = course.objects.get(course_id=request.data[0]['course_id'])
     
     #clsres.post_time = request.data[0]['post_time']
-    clsres.old_time = request.data[0]['old_time']
-    clsres.new_time = request.data[0]['new_time']
-    clsres.old_date = request.data[0]['old_date']
-    clsres.new_date = request.data[0]['new_date']
-    clsres.old_room = request.data[0]['old_room']
-    clsres.new_room = request.data[0]['new_room']
+    clsres.old_time = request.data[0]['oldtime']
+    clsres.new_time = request.data[0]['newtime']
+    clsres.old_date = request.data[0]['olddate']
+    clsres.new_date = request.data[0]['newdate']
+    clsres.old_room = request.data[0]['oldroom']
+    clsres.new_room = request.data[0]['newroom']
     clsres.description = request.data[0]['description']
     clsres.save()
     return Response({
@@ -266,6 +287,44 @@ def post_assignments(request):
     return Response({
         "id": "done"
     })
+
+
+@api_view(['POST'])
+def post_feeschedules(request):
+    
+    fs = feeschedules()
+    
+    
+    fs.title = request.data[0]['title']
+    fs.description  = request.data[0]['description']
+    fs.studentdegree = request.data[0]['studentdegree']
+    fs.due_date = request.data[0]['due_date']
+    
+    fs.save()
+    return Response({
+        "id": "done"
+    })
+
+
+@api_view(['POST'])
+def post_course_assign_mix(request):
+    #print("_______________________________________________________________________________")
+    #print(request.data[0]['fac_id'])
+
+    #print("_______________________________________________________________________________")
+    results = assignments.course_assign_mix(request.data[0]['fac_id']) 
+    #print(results)
+
+    #print("_______________________________________________________________________________")
+    return Response(results)
+
+@api_view(['POST'])
+def post_get_course_id(request):
+    
+    results = course.get_course_id(request.data[0]['cou_id']) 
+    #print(results)
+    return Response(results)
+
 
 """
 

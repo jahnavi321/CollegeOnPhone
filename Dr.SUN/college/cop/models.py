@@ -6,6 +6,7 @@ from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
+from django.db import connection
 
 # Create your models here.
 
@@ -55,6 +56,28 @@ class course(models.Model):
     def __str__(self):
         return str(self.course_id)
 
+    @staticmethod  
+    def get_course_id(cou_id):  
+        # create a cursor  
+        cur = connection.cursor()  
+        # execute the stored procedure passing in   
+        # search_string as a parameter  
+        cur.callproc('get_course_id', [cou_id,])  
+        # grab the results  
+        columns = [col[0] for col in cur.description]
+        results= [
+            dict(zip(columns, row))
+            for row in cur.fetchall()
+        ]
+        #results = cur.fetchall()
+        # print("****")
+        # print(len(results)) 
+        
+        cur.close()  
+
+        # wrap the results up into Document domain objects   
+        return results
+
 
 class student(models.Model):
     slno = models.AutoField(primary_key=True)
@@ -102,10 +125,32 @@ class assignments(models.Model):
     type = models.CharField(max_length=20)
     name = models.CharField(max_length=20)
     post_time = models.DateTimeField(default=datetime.now)
-    deadline = models.DateTimeField(default=datetime.now)
+    deadline = models.CharField(max_length=20)
     description= models.CharField(max_length =4000)
     def __str__(self):
         return str(self.event_name)
+
+    @staticmethod  
+    def course_assign_mix(fac_id):  
+        # create a cursor  
+        cur = connection.cursor()  
+        # execute the stored procedure passing in   
+        # search_string as a parameter  
+        cur.callproc('course_assign_mix', [fac_id,])  
+        # grab the results  
+        columns = [col[0] for col in cur.description]
+        results= [
+            dict(zip(columns, row))
+            for row in cur.fetchall()
+        ]
+        #results = cur.fetchall()
+        # print("****")
+        # print(len(results)) 
+        
+        cur.close()  
+
+        # wrap the results up into Document domain objects   
+        return results
 
 
 class grades(models.Model):
@@ -137,7 +182,7 @@ class events(models.Model):
 
 class timetable(models.Model):
     slno = models.AutoField(primary_key=True)
-    studentdegree = models.CharField(max_length=100)
+    #studentdegree = models.CharField(max_length=100)
     slot_no = models.ForeignKey(day_parts, on_delete = models.CASCADE)
     day = models.CharField(max_length = 100)
     room_no = models.IntegerField(default=101)
@@ -189,3 +234,14 @@ class favourites(models.Model):
     description= models.CharField(max_length =4000)
     def __str__(self):
         return str(self.event_name)
+
+
+class feeschedules(models.Model):
+    slno = models.AutoField(primary_key=True)
+    title = models.CharField(max_length = 1000)
+    description  = models.CharField(max_length = 1000)
+    studentdegree = models.CharField(max_length=100)
+    due_date = models.CharField(max_length=100)
+
+    def __str__(self):
+        return str(self.title)

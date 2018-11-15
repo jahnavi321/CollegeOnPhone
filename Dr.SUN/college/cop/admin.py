@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import favourites,classreschedules,preclassreq,timetable,assignments,events,grades,day_parts,s_c_mapper,student,department,course,faculty ,Admin,CustomUser
+from .models import feeschedules,favourites,classreschedules,preclassreq,timetable,assignments,events,grades,day_parts,s_c_mapper,student,department,course,faculty ,Admin,CustomUser
 
 
 class CustomUserAdmin(UserAdmin):
@@ -28,4 +28,4 @@ admin.site.register(timetable)
 admin.site.register(classreschedules)
 admin.site.register(preclassreq)
 admin.site.register(favourites)
-
+admin.site.register(feeschedules)
