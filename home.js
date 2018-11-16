@@ -42,6 +42,7 @@ export default class App extends React.Component {
     this.state = {
             user:'',
             id:0,
+            test:false,
         };
   }
   static navigationOptions = {
@@ -51,7 +52,9 @@ export default class App extends React.Component {
 };
   render() {
     const { navigate } = this.props.navigation;
+
     return ( 
+      
         <ImageBackground source={require('./assets/college/college2.jpg')}  style={{flex: 1,height: '100%' ,width: '100%',alignItems: 'center', justifyContent: 'center'}} >
               <View style={styles.container}>
 
@@ -78,6 +81,10 @@ export default class App extends React.Component {
                       accessibilityLabel="Student"/>
                       </TouchableOpacity>
                   </FadeInView>
+                
+                
+                
+                 
                 </View>
               </View>
             </ImageBackground>
@@ -86,6 +93,13 @@ export default class App extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  WebViewStyle:
+ {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex:1,
+    //marginTop: (Platform.OS) === 'ios' ? 20 : 0
+ },
   backgroundImage: {
     resizeMode: 'cover', // or 'stretch'
   },

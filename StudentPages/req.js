@@ -33,7 +33,7 @@ export default class AssignProj extends Component {
       
     }
     
-    this.setState({array:temparray});
+    this.setState({array:temparray.reverse()});
   }
 
   cardData = (res) =>{
