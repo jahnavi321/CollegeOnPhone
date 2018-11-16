@@ -78,6 +78,7 @@ export default class StudentProfile extends Component<Props> {
     return (
      
       <View style={styles.container}>
+      
         <CardFlip style={styles.cardContainer} ref={(card) => this.card = card} >
           <TouchableOpacity activeOpacity={1} style={[styles.card, styles.card1]} onPress={() => this.card.flip()} >
             <View style={{alignItems: 'center',justifyContent: 'center',flex: 1}}>
