@@ -33,7 +33,7 @@ export default class CReq extends Component {
       
     }
     
-    this.setState({array:temparray});
+    this.setState({array:temparray.reverse()});
   }
 
   cardData = (res) =>{

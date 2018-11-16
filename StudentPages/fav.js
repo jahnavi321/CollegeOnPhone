@@ -64,7 +64,7 @@ export default class Fav extends Component {
         array2[i]['starPress'] = true;
       }
       console.log(array2);
-      this.setState({array:array2})
+      this.setState({array:array2.reverse()})
       // this.setState( { dummycount: count });
       // for(let i=0;i<count;i++){
       //   starPressarray.push(false);

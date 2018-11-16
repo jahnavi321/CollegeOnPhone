@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, StyleSheet, Text, View , Image, Icon , TextInput, ImageBackground, KeyboardAvoidingView,Button,TouchableOpacity,Dimensions} from 'react-native';
+import { Animated, StyleSheet, Text, WebView,View , Image, Icon , TextInput, ImageBackground, KeyboardAvoidingView,Button,TouchableOpacity,Dimensions} from 'react-native';
 import {
   createStackNavigator,
 } from 'react-navigation';

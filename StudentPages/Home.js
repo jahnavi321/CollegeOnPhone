@@ -64,7 +64,7 @@ export default class Home extends Component {
         array2[i]['starPress'] = false;
       }
       console.log(array2);
-      this.setState({array:array2})
+      this.setState({array:array2.reverse()})
       // this.setState( { dummycount: count });
       // for(let i=0;i<count;i++){
       //   starPressarray.push(false);
