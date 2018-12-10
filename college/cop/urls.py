@@ -11,7 +11,7 @@ urlpatterns = [
     #re_path('app/login/(?P<token_id>[\w\!-@+]+/)',views.app_login,name="app_login"),#,(?P<temperature>[0-9]+.[0-9]+)
 
     #url path for get requests
-    
+
     path('department/', views.get_department, name="get_department"),
     path('faculty/', views.get_faculty, name="get_faculty"),
     path('course/', views.get_course , name="get_course"),
@@ -46,9 +46,10 @@ urlpatterns = [
     path('post_get_preclassreq/', views.post_get_preclassreq , name="post_get_preclassreq"),
     path('post_get_mix_mapper_preclassreq_course/', views.post_get_mix_mapper_preclassreq_course , name="post_get_mix_mapper_preclassreq_course"),
     path('post_get_mix_classreschedule_course/', views.post_get_mix_classreschedule_course , name="post_get_mix_classreschedule_course"),
+    path('post_get_mix_mapper_classreschedules_course/', views.post_get_mix_mapper_classreschedules_course , name="post_get_mix_mapper_classreschedules_course"),
+    path('post_get_mix_mapper_assignments_course/', views.post_get_mix_mapper_assignments_course , name="post_get_mix_mapper_assignments_course"),
+    path('post_get_coursename/', views.post_get_coursename , name="post_get_coursename"),
 
-
-    
 
     # authentication
     path('rest-auth/registration/', include('rest_auth.registration.urls')),

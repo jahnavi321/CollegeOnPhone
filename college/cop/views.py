@@ -325,6 +325,15 @@ def post_get_course_id(request):
     #print(results)
     return Response(results)
 
+
+@api_view(['POST'])
+def post_get_coursename(request):
+    results = s_c_mapper.get_coursename(request.data[0]['stu_id'])
+    # print(results)
+    return Response(results)
+
+
+
 @api_view(['POST'])
 def post_get_preclassreq(request):
     
@@ -338,6 +347,19 @@ def post_get_mix_mapper_preclassreq_course(request):
     
     results = preclassreq.mix_mapper_preclassreq_course(request.data[0]['stu_id']) 
     #print(results)
+    return Response(results)
+
+
+@api_view(['POST'])
+def post_get_mix_mapper_classreschedules_course(request):
+    results = classreschedules.mix_mapper_classreschedules_course(request.data[0]['stu_id'])
+    # print(results)
+    return Response(results)
+
+@api_view(['POST'])
+def post_get_mix_mapper_assignments_course(request):
+    results = assignments.mix_mapper_assignments_course(request.data[0]['stu_id'])
+    # print(results)
     return Response(results)
 
 

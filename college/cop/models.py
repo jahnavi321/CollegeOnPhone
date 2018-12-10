@@ -145,6 +145,28 @@ class s_c_mapper(models.Model):
     student_id = models.CharField(max_length=20)
     cid = models.ForeignKey(course,on_delete= models.CASCADE)
 
+    @staticmethod
+    def get_coursename(stu_id):
+        # create a cursor
+        cur = connection.cursor()
+        # execute the stored procedure passing in
+        # search_string as a parameter
+        cur.callproc('get_coursename', [stu_id, ])
+        # grab the results
+        columns = [col[0] for col in cur.description]
+        results = [
+            dict(zip(columns, row))
+            for row in cur.fetchall()
+        ]
+        # results = cur.fetchall()
+        # print("****")
+        # print(len(results))
+
+        cur.close()
+
+        # wrap the results up into Document domain objects
+        return results
+
 #day parts represent the time and day parts in a timetable
 class day_parts(models.Model):
     slno = models.AutoField(primary_key=True)
@@ -194,6 +216,28 @@ class assignments(models.Model):
         cur.close()  
 
         # wrap the results up into Document domain objects   
+        return results
+
+    @staticmethod
+    def mix_mapper_assignments_course(stu_id):
+        # create a cursor
+        cur = connection.cursor()
+        # execute the stored procedure passing in
+        # search_string as a parameter
+        cur.callproc('mix_mapper_assignments_course', [stu_id, ])
+        # grab the results
+        columns = [col[0] for col in cur.description]
+        results = [
+            dict(zip(columns, row))
+            for row in cur.fetchall()
+        ]
+        # results = cur.fetchall()
+        # print("****")
+        # print(len(results))
+
+        cur.close()
+
+        # wrap the results up into Document domain objects
         return results
 
 
@@ -276,6 +320,28 @@ class classreschedules(models.Model):
 
         # wrap the results up into Document domain objects   
         return results
+
+    @staticmethod
+    def mix_mapper_classreschedules_course(stu_id):
+        # create a cursor
+        cur = connection.cursor()
+        # execute the stored procedure passing in
+        # search_string as a parameter
+        cur.callproc('mix_mapper_classreschedules_course', [stu_id, ])
+        # grab the results
+        columns = [col[0] for col in cur.description]
+        results = [
+            dict(zip(columns, row))
+            for row in cur.fetchall()
+        ]
+        # results = cur.fetchall()
+        # print("****")
+        # print(len(results))
+
+        cur.close()
+
+        # wrap the results up into Document domain objects
+        return results
     
 
 
@@ -312,7 +378,7 @@ class preclassreq(models.Model):
         return results
 
 
-    @staticmethod  
+    @staticmethod
     def mix_preclassreq_course(fac_id):  
         # create a cursor  
         cur = connection.cursor()  
